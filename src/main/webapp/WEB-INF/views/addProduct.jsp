@@ -42,6 +42,8 @@
                      </div> 
                   </div> 
                   
+                  <!-- ADD OTHER ATTRIBUTES HERE -->
+                  
 				<div class="form-group"> 
                      <label class="control-label col-lg-2" 
                       for="discontinued">Discontinued</label> 

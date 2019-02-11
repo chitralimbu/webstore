@@ -35,26 +35,69 @@
 				</div>
 				
 				<div class="form-group"> 
-                     <label class="control-label col-lg-2" 
-                      for="description">Description</label> 
+                     <label class="control-label col-lg-2 col-lg-2" for="name">Name</label> 
+                     <div class="col-lg-10"> 
+                        <form:input id="name" path="name" type="text" class="form:input-large"/>
+                     </div> 
+                  </div> 
+                
+                <div class="form-group"> 
+                     <label class="control-label col-lg-2 col-lg-2" for="unitPrice">Unit Price</label> 
+                     <div class="col-lg-10"> 
+                        <form:input id="unitPrice" path="unitPrice" type="text" class="form:input-large"/>
+                     </div> 
+                  </div> 
+				
+				
+				<div class="form-group"> 
+                     <label class="control-label col-lg-2 col-lg-2" for="manufacturer">Manufacturer</label> 
+                     <div class="col-lg-10"> 
+                        <form:input id="manufacturer" path="manufacturer" type="text" class="form:input-large"/>
+                     </div> 
+                  </div> 
+				
+				<div class="form-group"> 
+                     <label class="control-label col-lg-2 col-lg-2" for="category">Category</label> 
+                     <div class="col-lg-10"> 
+                        <form:input id="category" path="category" type="text" class="form:input-large"/>
+                     </div> 
+                  </div>
+				
+				<div class="form-group"> 
+                     <label class="control-label col-lg-2 col-lg-2" for="unitsInStock">Units in Stock</label> 
+                     <div class="col-lg-10"> 
+                        <form:input id="unitsInStock" path="unitsInStock" type="text" class="form:input-large"/>
+                     </div> 
+                  </div>
+				
+				<div class="form-group"> 
+                     <label class="control-label col-lg-2 col-lg-2" for="unitsInOrder">Units in Order</label> 
+                     <div class="col-lg-10"> 
+                        <form:input id="unitsInOrder" path="unitsInOrder" type="text" class="form:input-large"/>
+                     </div> 
+                  </div>
+				
+				
+				<div class="form-group"> 
+                     <label class="control-label col-lg-2" for="description">Description</label> 
                      <div class="col-lg-10"> 
                         <form:textarea id="description" path="description" rows = "2"/> 
                      </div> 
                   </div> 
                   
                   <!-- ADD OTHER ATTRIBUTES HERE -->
+                 
+                
                   
 				<div class="form-group"> 
-                     <label class="control-label col-lg-2" 
-                      for="discontinued">Discontinued</label> 
+                     <label class="control-label col-lg-2" for="discontinued">Discontinued</label> 
                     <div class="col-lg-10"> 
                         <form:checkbox  id="discontinued" path="discontinued"/> 
                      </div> 
                   </div>
 				
 				<div class="form-group"> 
-                     <label class="control-label col-lg-2" 
-                      for="condition">Condition</label> 
+                     <label class="control-label col-lg-2" for="condition">Condition</label> 
                      <div class="col-lg-10"> 
                         <form:radiobutton path="condition" value="New" />New  
                         <form:radiobutton path="condition" value="Old" />Old  

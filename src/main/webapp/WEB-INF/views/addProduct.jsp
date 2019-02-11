@@ -73,7 +73,7 @@
 				<div class="form-group"> 
                      <label class="control-label col-lg-2 col-lg-2" for="unitsInOrder">Units in Order</label> 
                      <div class="col-lg-10"> 
-                        <form:input id="unitsInOrder" path="unitsInOrder" type="text" class="form:input-large"/>
+                       <!--<form:input id="unitsInOrder" path="unitsInOrder" type="text" class="form:input-large"/>-->
                      </div> 
                   </div>
 				
@@ -92,7 +92,7 @@
 				<div class="form-group"> 
                      <label class="control-label col-lg-2" for="discontinued">Discontinued</label> 
                     <div class="col-lg-10"> 
-                        <form:checkbox  id="discontinued" path="discontinued"/> 
+                       <!--<form:checkbox  id="discontinued" path="discontinued"/>--> 
                      </div> 
                   </div>
 				

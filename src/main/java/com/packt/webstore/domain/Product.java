@@ -5,6 +5,11 @@ import java.math.BigDecimal;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement
 public class Product implements Serializable{
 	
 	private static final long serialVersionUID = 3678107792576131001L; 
@@ -19,6 +24,7 @@ public class Product implements Serializable{
 	private long unitsInOrder;
 	private boolean discontinued; 
 	private String condition; 
+	@JsonIgnore
 	private MultipartFile productImage;
 	
 	public Product() {
@@ -31,6 +37,7 @@ public class Product implements Serializable{
 		this.unitPrice = unitPrice;
 	}
 	
+	@XmlTransient
 	public MultipartFile getProductImage() {
 		return productImage;
 	}

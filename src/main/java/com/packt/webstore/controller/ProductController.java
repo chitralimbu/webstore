@@ -78,10 +78,12 @@ public class ProductController {
 
 		MultipartFile productImage = newProduct.getProductImage();
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-		
+		System.out.println("Root Directory: " + rootDirectory);
 		if(productImage!=null && !productImage.isEmpty()) {
 			try {
-				productImage.transferTo(new File(rootDirectory+"resources\\images"+newProduct.getProductId() + ".jpg"));
+				productImage.transferTo(
+						new File(rootDirectory+"resources\\images\\"+newProduct.getProductId() + ".jpg"));
+				System.out.println(rootDirectory+"resources\\images\\"+newProduct.getProductId() + ".jpg");
 			}catch(Exception e) {
 				throw new RuntimeException("Product Image saving failed", e);
 			}

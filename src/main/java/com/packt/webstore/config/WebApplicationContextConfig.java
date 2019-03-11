@@ -11,6 +11,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
@@ -31,6 +32,7 @@ import org.springframework.web.util.UrlPathHelper;
 
 import com.packt.webstore.domain.Product;
 import com.packt.webstore.interceptor.ProcessinTimeLogInterceptor;
+import com.packt.webstore.interceptor.PromoCodeInterceptor;
 
 @Configuration
 @EnableWebMvc
@@ -111,11 +113,23 @@ public class WebApplicationContextConfig extends WebMvcConfigurerAdapter {
 		return resolver;
 	}
 
+	@Bean
+	public HandlerInterceptor promoCodeInterceptor() {
+		PromoCodeInterceptor promoCodeInterceptor = new PromoCodeInterceptor();
+		promoCodeInterceptor.setPromoCode("OFF3R");
+		promoCodeInterceptor.setOfferRedirect("market/products");
+		promoCodeInterceptor.setErrorRedirect("invalidPromoCode");
+		
+		return promoCodeInterceptor;
+	}
+	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new ProcessinTimeLogInterceptor());
 		LocaleChangeInterceptor localeChaneInterceptor = new LocaleChangeInterceptor();
 		localeChaneInterceptor.setParamName("language");
 		registry.addInterceptor(localeChaneInterceptor);
+		
+		registry.addInterceptor(promoCodeInterceptor()).addPathPatterns("/**/market/products/specialOffer");
 	}
 }

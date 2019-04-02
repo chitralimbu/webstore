@@ -129,7 +129,6 @@ public class WebApplicationContextConfig extends WebMvcConfigurerAdapter {
 		LocaleChangeInterceptor localeChaneInterceptor = new LocaleChangeInterceptor();
 		localeChaneInterceptor.setParamName("language");
 		registry.addInterceptor(localeChaneInterceptor);
-		
 		registry.addInterceptor(promoCodeInterceptor()).addPathPatterns("/**/market/products/specialOffer");
 	}
 }

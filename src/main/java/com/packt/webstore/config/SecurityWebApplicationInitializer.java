@@ -1,5 +1,7 @@
 package com.packt.webstore.config;
 
-public class SecurityWebApplicationInitializer {
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 
+public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplicationInitializer{
+	
 }

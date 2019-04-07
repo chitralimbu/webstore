@@ -76,12 +76,15 @@ public class ProductController {
 		model.addAttribute("newProduct", newProduct);
 		return "addProduct";
 	}
-
+	
 	@RequestMapping(value = "/products/add", method = RequestMethod.POST)
 	public String processAddNewProductForm(@ModelAttribute("newProduct") @Valid Product newProduct, BindingResult result, HttpServletRequest request) {
+//	@RequestMapping(value = "/products/add", method = RequestMethod.POST)
+//	public String processAddNewProductForm(@ModelAttribute("newProduct") @Valid Product newProduct, BindingResult result, HttpServletRequest request) {
 		
 		if(result.hasErrors()) {
-			return "addproduct";
+			System.out.println("Has Errors!!!!!!!!!!!!!!!");
+			return "addProduct";
 		}
 		
 		String[] suppressedFields = result.getSuppressedFields();
@@ -103,6 +106,7 @@ public class ProductController {
 		}
 		
 		productService.addProduct(newProduct);
+		System.out.println("Has No Errors: !!!!!!!!!!!!!");
 		return "redirect:/market/products";
 	}
 	

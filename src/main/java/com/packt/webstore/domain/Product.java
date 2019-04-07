@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.packt.webstore.validator.ProductId;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
@@ -20,6 +21,7 @@ public class Product implements Serializable{
 	private static final long serialVersionUID = 3678107792576131001L; 
 	
 	@Pattern(regexp="P[1-9]+", message="{Pattern.Product.productId.validation}")
+	@ProductId
 	private String productId;
 	@Size(min=4, max=50, message="Size.Product.name.validation")
 	private String name;

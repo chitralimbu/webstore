@@ -28,11 +28,15 @@ import com.packt.webstore.domain.Product;
 import com.packt.webstore.exception.NoProductsFoundUnderCategoryException;
 import com.packt.webstore.exception.ProductNotFoundException;
 import com.packt.webstore.service.ProductService;
+import com.packt.webstore.validator.UnitsInStockValidator;
 
 @Controller
 @RequestMapping("market")
 public class ProductController {
 
+	@Autowired
+	private UnitsInStockValidator unitsInStockValidator;
+	
 	@Autowired
 	private ProductService productService;
 
@@ -127,15 +131,16 @@ public class ProductController {
 	
 	@InitBinder
 	public void initialiseBinder(WebDataBinder binder) {
+		binder.setValidator(unitsInStockValidator);
 		binder.setAllowedFields("productId",
-				"name",
-				"unitPrice",
-				"description",
-				"manufacturer",
-				"category",
-				"unitsInStock",
-				"condition",
-				"productImage",
-				"language");
+		"name",
+		"unitPrice",
+		"description",
+		"manufacturer",
+		"category",
+		"unitsInStock",
+		"condition",
+		"productImage",
+		"language");
 	}
 }

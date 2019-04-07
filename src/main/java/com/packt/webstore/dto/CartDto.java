@@ -4,11 +4,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class CartDto implements Serializable{
 
 	private static final long serialVersionUID = -7677835824221106998L;
 	private String id;
 	private List<CartItemDto> cartItems;
+	
+	public CartDto() {}
 	
 	public CartDto(String id) {
 		super();

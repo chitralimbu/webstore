@@ -7,6 +7,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.*;
 
 @XmlRootElement
@@ -14,8 +17,12 @@ public class Product implements Serializable{
 	
 	private static final long serialVersionUID = 3678107792576131001L; 
 	
+	@Pattern(regexp="P[1-9]+", message="{Pattern.Product.productId.validation}")
 	private String productId;
+	@Size(min=4, max=50, message="Size.Product.name.validation")
 	private String name;
+	@Min(value=0, message="{Min.Product.unitPrice.validation}")
+	
 	private BigDecimal unitPrice;
 	private String description;
 	private String manufacturer;

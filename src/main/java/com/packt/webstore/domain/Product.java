@@ -7,7 +7,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.*;
@@ -22,7 +24,8 @@ public class Product implements Serializable{
 	@Size(min=4, max=50, message="Size.Product.name.validation")
 	private String name;
 	@Min(value=0, message="{Min.Product.unitPrice.validation}")
-	
+	@Digits(integer=8, fraction=2, message="{Digits.Product.unitPrice.validation}")
+	@NotNull(message="{NotNull.Product.unitPrice.validation}")
 	private BigDecimal unitPrice;
 	private String description;
 	private String manufacturer;

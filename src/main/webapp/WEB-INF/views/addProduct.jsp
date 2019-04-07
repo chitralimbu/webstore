@@ -34,8 +34,9 @@
 	<section class="container">
 		<form:form method="POST" modelAttribute="newProduct"
 			class="form-horizontal" enctype="multipart/form-data">
+			<form:errors path="*" cssClass="alert alert-danger" element="div"/>
 			<fieldset>
-				<legend>Add new Prodcut</legend>
+				<legend>Add new Product</legend>
 
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for="productId"><spring:message
@@ -43,6 +44,8 @@
 					<div class="col-lg-10">
 						<form:input id="productId" path="productId" type="text"
 							class="form:input-large" />
+							<form:errors path="productId" cssClass="text-danger"/>
+							
 					</div>
 				</div>
 
@@ -61,6 +64,7 @@
 					<div class="col-lg-10">
 						<form:input id="unitPrice" path="unitPrice" type="text"
 							class="form:input-large" />
+					<form:errors path="unitPrice" cssClass="text-danger"/>
 					</div>
 				</div>
 

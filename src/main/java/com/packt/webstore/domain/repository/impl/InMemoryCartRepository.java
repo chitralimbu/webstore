@@ -16,8 +16,7 @@ import com.packt.webstore.dto.CartItemDto;
 import com.packt.webstore.service.ProductService; 
 
 @Repository 
-public class InMemoryCartRepository implements  
-CartRepository{ 
+public class InMemoryCartRepository implements CartRepository{ 
 
 	@Autowired 
 	private NamedParameterJdbcTemplate jdbcTempleate; 
@@ -65,8 +64,7 @@ CartRepository{
 		CartMapper cartMapper = new CartMapper(jdbcTempleate, productService); 
 
 		try { 
-			return jdbcTempleate.queryForObject(SQL,  
-					params, cartMapper); 
+			return jdbcTempleate.queryForObject(SQL, params, cartMapper); 
 		} catch (EmptyResultDataAccessException e) { 
 			return null; 
 		}       
@@ -153,4 +151,15 @@ CartRepository{
 
 		jdbcTempleate.update(SQL_DELETE_CART_ITEM, params);   
 	} 
+
+	@Override 
+	public void clearCart(String cartId) { 
+		String SQL_DELETE_CART_ITEM = "DELETE FROM CART_ITEM WHERE CART_ID = :id"; 
+
+		Map<String, Object> params = new HashMap<>();    
+		params.put("id", cartId); 
+
+		jdbcTempleate.update(SQL_DELETE_CART_ITEM, params);   
+	} 
+
 } 
